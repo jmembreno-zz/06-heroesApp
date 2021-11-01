@@ -5,6 +5,15 @@ import { ErrorPageComponent } from './shared/error-page/error-page.component';
 
 const routes: Routes = [
   {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(modulo => modulo.AuthModule) //Esta es la Clave del LazyLoad
+  },
+  {
+    path: 'heroes',
+    loadChildren: () => import('./heroes/heroes.module').then(modulo => modulo.HeroesModule)
+
+  },
+  {
     path: '404',
     component: ErrorPageComponent
   },
